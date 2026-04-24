@@ -130,3 +130,15 @@ button.toggle-btn {
 .submit-btn:active {
     transform: scale(0.98);
 }
+
+.comments-section {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    padding: 2rem;
+    background-color: var(--container-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--shadow-color);
+    width: 90%;
+    max-width: 800px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
