@@ -1,51 +1,59 @@
+:root {
+    --bg-color: #f0f0f0;
+    --container-bg: white;
+    --text-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --number-bg: #eee;
+    --button-bg: #4CAF50;
+    --button-hover: #45a049;
+}
+
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --container-bg: #2d2d2d;
+    --text-color: #f0f0f0;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --number-bg: #444;
+    --button-bg: #2e7d32;
+    --button-hover: #1b5e20;
+}
+
 body {
     font-family: sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 lotto-generator {
     display: block;
     text-align: center;
     padding: 2rem;
-    background-color: white;
+    background-color: var(--container-bg);
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.numbers {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.number {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 5px;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-button {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    background-color: #4CAF50;
+button.toggle-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: var(--button-bg);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #45a049;
 }
