@@ -6,6 +6,8 @@
     --number-bg: #eee;
     --button-bg: #4CAF50;
     --button-hover: #45a049;
+    --nav-bg: #fff;
+    --footer-bg: #fff;
 }
 
 .dark-mode {
@@ -16,13 +18,15 @@
     --number-bg: #444;
     --button-bg: #2e7d32;
     --button-hover: #1b5e20;
+    --nav-bg: #2d2d2d;
+    --footer-bg: #2d2d2d;
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
     background-color: var(--bg-color);
@@ -31,35 +35,71 @@ body {
     margin: 0;
 }
 
+/* Navigation Styles */
+.top-nav {
+    width: 100%;
+    background-color: var(--nav-bg);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.top-nav a:hover, .top-nav a.active {
+    color: var(--button-bg);
+}
+
 .theme-toggle {
     position: absolute;
-    top: 20px;
+    top: 60px;
     right: 20px;
 }
 
 lotto-generator {
     display: block;
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem;
     background-color: var(--container-bg);
-    border-radius: 10px;
-    box-shadow: 0 0 20px var(--shadow-color);
+    border-radius: 12px;
+    box-shadow: 0 0 25px var(--shadow-color);
     transition: background-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 2rem;
+    width: 90%;
+    max-width: 500px;
 }
 
-button.toggle-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    background-color: var(--button-bg);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* Content Container for Information Pages */
+.content-container {
+    width: 90%;
+    max-width: 800px;
+    padding: 2rem;
+    background-color: var(--container-bg);
+    border-radius: 12px;
+    box-shadow: 0 0 20px var(--shadow-color);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.content-container h1, .content-container h2 {
+    color: var(--button-bg);
 }
 
 .contact-form {
-    margin-top: 3rem;
+    margin-top: 0;
+    margin-bottom: 3rem;
     padding: 2rem;
     background-color: var(--container-bg);
     border-radius: 10px;
@@ -132,7 +172,7 @@ button.toggle-btn {
 }
 
 .comments-section {
-    margin-top: 3rem;
+    margin-top: 0;
     margin-bottom: 5rem;
     padding: 2rem;
     background-color: var(--container-bg);
@@ -141,4 +181,45 @@ button.toggle-btn {
     width: 90%;
     max-width: 800px;
     transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Footer Styles */
+.site-footer {
+    width: 100%;
+    padding: 2rem 0;
+    background-color: var(--footer-bg);
+    text-align: center;
+    box-shadow: 0 -2px 5px var(--shadow-color);
+    margin-top: auto;
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover, .footer-links a.active {
+    color: var(--button-bg);
+}
+
+.site-footer p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .theme-toggle {
+        top: 60px;
+        right: 10px;
+    }
 }
